@@ -19,7 +19,7 @@ public class RoutePoint {
     private Integer y;
 
     @Column(name = "dir")
-    private Character direction;
+    private String direction;
 
     @ManyToOne
     @JoinColumn(name = "id_cmd")
@@ -28,20 +28,20 @@ public class RoutePoint {
     public RoutePoint() {
     }
 
-    public RoutePoint(Long routeId, Integer x, Integer y, Character direction) {
+    public RoutePoint(Long routeId, Integer x, Integer y, String direction) {
         this.routeId = routeId;
         this.x = x;
         this.y = y;
         this.direction = direction;
     }
 
-    public RoutePoint(Integer x, Integer y, Character direction) {
+    public RoutePoint(Integer x, Integer y, String direction) {
         this.x = x;
         this.y = y;
         this.direction = direction;
     }
 
-    public RoutePoint(Long routeId, Integer x, Integer y, Character direction, Command cmd) {
+    public RoutePoint(Long routeId, Integer x, Integer y, String direction, Command cmd) {
         this.routeId = routeId;
         this.x = x;
         this.y = y;
@@ -81,11 +81,11 @@ public class RoutePoint {
         this.y = y;
     }
 
-    public Character getDirection() {
+    public String getDirection() {
         return direction;
     }
 
-    public void setDirection(Character direction) {
+    public void setDirection(String direction) {
         this.direction = direction;
     }
 

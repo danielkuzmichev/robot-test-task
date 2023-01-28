@@ -2,7 +2,10 @@ package com.example.demo.util;
 
 import org.springframework.stereotype.Component;
 
-import static com.example.demo.util.Сompass.*;
+import static com.example.demo.util.Direction.*;
+import static com.example.demo.util.Compass.spinLeft;
+import static com.example.demo.util.Compass.spinRight;
+
 
 @Component
 public class Robot {
@@ -11,15 +14,15 @@ public class Robot {
 
     private int y;
 
-    private char direction;
+    private String direction;
 
     public Robot() {
         this.x = 0;
         this.y = 0;
-        this.direction = NORTH;
+        this.direction = NORTH.getTitle();
     }
 
-    public Robot(int x, int y, char direction) {
+    public Robot(int x, int y, String direction) {
         this.x = x;
         this.y = y;
         this.direction = direction;
@@ -34,14 +37,11 @@ public class Robot {
     }
 
     public void go() {
-       switch (this.direction){
+       switch (Direction.valueOfTitle(this.direction)){
            case NORTH -> y++;
            case SOUTH -> y--;
            case EAST -> x++;
            case WEST -> x--;
-           default -> {
-               break;
-           }
        }
     }
 
@@ -56,10 +56,10 @@ public class Robot {
     public void returnToStart() {
         this.x = 0;
         this.y = 0;
-        this.direction = NORTH;
+        this.direction = NORTH.getTitle();
     }
 
-    public char getDirection() {
+    public String getDirection() {
         return direction;
     }
 
@@ -71,7 +71,7 @@ public class Robot {
         this.y = y;
     }
 
-    public void setDirection(char direction) {
+    public void setDirection(String direction) {
         this.direction = direction;
     }
 }

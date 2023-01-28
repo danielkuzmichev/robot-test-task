@@ -11,7 +11,7 @@ public class Command {
     private Integer id;
     @Column(name = "line")
     private String line;
-
+  
     public int getId() {
         return id;
     }
