@@ -54,12 +54,12 @@ public class RobotWalkingThread extends Thread {
     private boolean circularCommand;
 
     /**
-     * Флаг выполнения команды по выполнения команд перемещения робота.
+     * Флаг выполнения команд перемещения робота.
      */
     private boolean executing;
 
     /**
-     * Репозиторий для получение и сохрания данных БД.
+     * Репозиторий для получение и сохранения данных БД.
      */
     @Autowired
     private RoutePointRepository routePointsRepository;
@@ -112,7 +112,7 @@ public class RobotWalkingThread extends Thread {
     /**
      * Проверка команды на зацикливание.
      * <p>
-     * Проверяет команду на основании начального положения робота и после выполнения команды.
+     * Проверяет команду на основании начального положения робота.
      * Команда является цикличной, когда после ее выполнения либо не изменилось положение робота,
      * либо изменилось направление робота.
      *
@@ -142,7 +142,7 @@ public class RobotWalkingThread extends Thread {
      * Изменение списка точек маршрута ({@link RobotWalkingThread#routePoints routePoints}.
      * <p>
      * Добавляет новую точку, если изменилось текущее положение робота.
-     * Изменяет направление у последней точки маршрута при плвороте робота на месте.
+     * Изменяет направление у последней точки маршрута при повороте робота на месте.
      */
     private void changeRoutePoints() {
         if (getLastRoutePoint().getX() != this.robot.getX() || getLastRoutePoint().getY() != this.robot.getY()) {
